@@ -1,0 +1,42 @@
+Game
+-
+game_id INT PK
+week INT
+PtsW INT
+PtsL INT
+YdsW INT
+YdsL INT
+Winner TEXT FK >- Teams.team_id
+Loser TEXT
+home_team TEXT FK >- Teams.team_id
+away_team TEXT FK >- Teams.team_id
+date DATE
+stadium_id INT FK >- Stadium.stadium_id
+station_id TEXT
+Rain FLOAT
+Temp FLOAT
+
+Stadium
+-
+stadium_id INT PK
+team TEXT
+name TEXT
+geo_point TEXT
+ROOF_TYPE TEXT
+Station TEXT
+
+Stations
+-
+station_id PK TEXT FK -< Game.station_id
+name TEXT
+country TEXT
+state TEXT
+latitude INT
+longitude INT
+
+Teams
+-
+team_id INT PK FK -< Game.loser
+team_name TEXT
+team_conference TEXT
+team_division TEXT
