@@ -6,37 +6,35 @@ PtsW INT
 PtsL INT
 YdsW INT
 YdsL INT
-Winner TEXT FK >- Teams.team_id
-Loser TEXT
-home_team TEXT FK >- Teams.team_id
-away_team TEXT FK >- Teams.team_id
+Winner VARCHAR(255)
+Loser VARCHAR(255)
+home_team VARCHAR(255) FK >- Teams.team_name
+away_team VARCHAR(255) 
 date DATE
-stadium_id INT FK >- Stadium.stadium_id
-station_id TEXT
+stadium VARCHAR(255) FK >- Stadiums.name
+ghcnd VARCHAR(255) FK >- Stations.ghcnd
 Rain FLOAT
 Temp FLOAT
 
-Stadium
+Stadiums
 -
-stadium_id INT PK
-team TEXT
-name TEXT
-geo_point TEXT
-ROOF_TYPE TEXT
-Station TEXT
+name VARCHAR(255) PK
+team VARCHAR(255)
+geo_point VARCHAR(255)
+ROOF_TYPE VARCHAR(255)
+Station VARCHAR(255) FK >- Stations.ghcnd
 
 Stations
 -
-station_id PK TEXT FK -< Game.station_id
-name TEXT
-country TEXT
-state TEXT
+ghcnd PK VARCHAR(255)
+name VARCHAR(255)
+country VARCHAR(255)
+state VARCHAR(255)
 latitude INT
 longitude INT
 
 Teams
 -
-team_id INT PK FK -< Game.loser
-team_name TEXT
-team_conference TEXT
-team_division TEXT
+team_name VARCHAR(255) PK
+team_conference VARCHAR(255)
+team_division VARCHAR(255)
