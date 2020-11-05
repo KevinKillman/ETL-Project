@@ -21,7 +21,7 @@ Stadiums
 name VARCHAR(255) PK
 team VARCHAR(255)
 geo_point VARCHAR(255)
-ROOF_TYPE VARCHAR(255)
+roof_type VARCHAR(255)
 Station VARCHAR(255) FK >- Stations.ghcnd
 
 Stations
