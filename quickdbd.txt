@@ -2,39 +2,42 @@ Games
 -
 game_id INT PK
 week INT
-PtsW INT
-PtsL INT
-YdsW INT
-YdsL INT
-Winner VARCHAR(255)
-Loser VARCHAR(255)
-home_team VARCHAR(255) FK >- Teams.team_name
-away_team VARCHAR(255) 
+ptsw INT
+ptsl INT
+ydsw INT
+ydsl INT
+winner_id INT FK >- Teams.team_id
+loser_id INT FK >- Teams.team_id
+home_team_id INT FK >- Teams.team_id
+away_team_id INT FK >- Teams.team_id
 date DATE
-stadium VARCHAR(255) FK >- Stadiums.name
-ghcnd VARCHAR(255) FK >- Stations.ghcnd
-Rain FLOAT
-Temp FLOAT
+stadium_id INT FK - Stadiums.stadium_id
+station_id INT FK - Stations.station_id
+rain FLOAT
+temp FLOAT
 
 Stadiums
 -
-name VARCHAR(255) PK
-team VARCHAR(255)
+stadium_id INT PK
+name VARCHAR(255) 
+team_id INT FK - Teams.team_id
 geo_point VARCHAR(255)
 roof_type VARCHAR(255)
-Station VARCHAR(255) FK >- Stations.ghcnd
+station_id INT FK >- Stations.station_id
 
 Stations
 -
-ghcnd VARCHAR(255) PK
+station_id INT PK
+ghcnd VARCHAR(255) 
 name VARCHAR(255)
 country VARCHAR(255)
 st VARCHAR(255)
-lat INT
-lon INT
+lat FLOAT
+lon FLOAT
 
 Teams
 -
-team_name VARCHAR(255) PK
+team_id INT PK
+team_name VARCHAR(255) 
 team_conference VARCHAR(255)
 team_division VARCHAR(255)
