@@ -1,4 +1,4 @@
-Game
+Games
 -
 game_id INT PK
 week INT
@@ -26,12 +26,12 @@ Station VARCHAR(255) FK >- Stations.ghcnd
 
 Stations
 -
-ghcnd PK VARCHAR(255)
+ghcnd VARCHAR(255) PK
 name VARCHAR(255)
 country VARCHAR(255)
-state VARCHAR(255)
-latitude INT
-longitude INT
+st VARCHAR(255)
+lat INT
+lon INT
 
 Teams
 -

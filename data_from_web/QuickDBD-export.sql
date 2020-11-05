@@ -2,7 +2,7 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
-CREATE TABLE "Game" (
+CREATE TABLE "Games" (
     "game_id" INT   NOT NULL,
     "week" INT   NOT NULL,
     "ptsw" INT   NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE "Stations" (
     "ghcnd" VARCHAR(255)   NOT NULL,
     "name" VARCHAR(255)   NOT NULL,
     "country" VARCHAR(255)   NOT NULL,
-    "state" VARCHAR(255)   NOT NULL,
-    "latitude" FLOAT   NOT NULL,
-    "longitude" FLOAT   NOT NULL,
+    "st" VARCHAR(255)   NOT NULL,
+    "lat" FLOAT   NOT NULL,
+    "long" FLOAT   NOT NULL,
     CONSTRAINT "pk_Stations" PRIMARY KEY (
         "station_id"
      )
@@ -58,22 +58,22 @@ CREATE TABLE "Teams" (
      )
 );
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_winner_id" FOREIGN KEY("winner_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_winner_id" FOREIGN KEY("winner_id")
 REFERENCES "Teams" ("team_id");
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_loser_id" FOREIGN KEY("loser_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_loser_id" FOREIGN KEY("loser_id")
 REFERENCES "Teams" ("team_id");
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_home_team_id" FOREIGN KEY("home_team_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_home_team_id" FOREIGN KEY("home_team_id")
 REFERENCES "Teams" ("team_id");
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_away_team_id" FOREIGN KEY("away_team_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_away_team_id" FOREIGN KEY("away_team_id")
 REFERENCES "Teams" ("team_id");
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_stadium_id" FOREIGN KEY("stadium_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_stadium_id" FOREIGN KEY("stadium_id")
 REFERENCES "Stadiums" ("stadium_id");
 
-ALTER TABLE "Game" ADD CONSTRAINT "fk_Game_station_id" FOREIGN KEY("station_id")
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_station_id" FOREIGN KEY("station_id")
 REFERENCES "Stations" ("station_id");
 
 ALTER TABLE "Stadiums" ADD CONSTRAINT "fk_Stadiums_team_id" FOREIGN KEY("team_id")
