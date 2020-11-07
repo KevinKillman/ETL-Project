@@ -16,8 +16,10 @@ CREATE TABLE "Games" (
     "date" DATE   NOT NULL,
     "stadium_id" INT   NOT NULL,
     "station_id" INT   NOT NULL,
-    "Rain" FLOAT   NOT NULL,
-    "Temp" FLOAT   NOT NULL,
+    "rain" FLOAT   ,
+    "temp" FLOAT   ,
+    "total_pts" INT,
+    "total_yds" INT
     CONSTRAINT "pk_Game" PRIMARY KEY (
         "game_id"
      )
@@ -27,9 +29,9 @@ CREATE TABLE "Stadiums" (
     "stadium_id" INT   NOT NULL,
     "name" VARCHAR(255)   NOT NULL,
     "team_id" INT   NOT NULL,
-    "geo_point" VARCHAR(255)   NOT NULL,
-    "roof_type" VARCHAR(255)   NOT NULL,
-    "station_id" INT   NOT NULL,
+    "geo_point" VARCHAR(255)   ,
+    "roof_type" VARCHAR(255)   ,
+    "station_id" INT   ,
     CONSTRAINT "pk_Stadiums" PRIMARY KEY (
         "stadium_id"
      )
@@ -42,7 +44,7 @@ CREATE TABLE "Stations" (
     "country" VARCHAR(255)   NOT NULL,
     "st" VARCHAR(255)   NOT NULL,
     "lat" FLOAT   NOT NULL,
-    "long" FLOAT   NOT NULL,
+    "lon" FLOAT   NOT NULL,
     CONSTRAINT "pk_Stations" PRIMARY KEY (
         "station_id"
      )
@@ -51,8 +53,8 @@ CREATE TABLE "Stations" (
 CREATE TABLE "Teams" (
     "team_id" INT   NOT NULL,
     "team_name" VARCHAR(255)   NOT NULL,
-    "team_conference" VARCHAR(255)   NOT NULL,
-    "team_division" VARCHAR(255)   NOT NULL,
+    "team_conference" VARCHAR(255)   ,
+    "team_division" VARCHAR(255)   ,
     CONSTRAINT "pk_Teams" PRIMARY KEY (
         "team_id"
      )
