@@ -6,15 +6,18 @@ ptsw INT
 ptsl INT
 ydsw INT
 ydsl INT
-winner_id INT FK >- Teams.team_id
-loser_id INT FK >- Teams.team_id
-home_team_id INT FK >- Teams.team_id
-away_team_id INT FK >- Teams.team_id
+winner_id INT FK - Seasons_Team_Stats.team_id
+loser_id INT FK - Seasons_Team_Stats.team_id
+home_team_id INT FK - Seasons_Team_Stats.team_id
+away_team_id INT FK - Seasons_Team_Stats.team_id
+year INT FK - Seasons_Team_Stats.year
 date DATE
 stadium_id INT FK - Stadiums.stadium_id
 station_id INT FK - Stations.station_id
 rain FLOAT
 temp FLOAT
+total_pts INT
+total_yds INT
 
 Stadiums
 -
@@ -41,3 +44,15 @@ team_id INT PK
 team_name VARCHAR(255) 
 team_conference VARCHAR(255)
 team_division VARCHAR(255)
+
+Seasons_Team_Stats
+-
+team_id INT FK - Teams.team_id
+year INT PK
+Tm  VARCHAR(255)
+W   INT
+L  INT
+T  INT
+PF  INT
+PA  INT
+PD  INT
