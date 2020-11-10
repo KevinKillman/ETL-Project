@@ -78,28 +78,20 @@ CREATE TABLE "Seasons_Team_Stats" (
 
 ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_winner_id_year" FOREIGN KEY("winner_id", "year")
 REFERENCES "Seasons_Team_Stats" ("team_id", "year");
-
-ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_loser_id" FOREIGN KEY("loser_id")
-REFERENCES "Seasons_Team_Stats" ("team_id");
-
-ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_home_team_id" FOREIGN KEY("home_team_id")
-REFERENCES "Seasons_Team_Stats" ("team_id");
-
-ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_away_team_id" FOREIGN KEY("away_team_id")
-REFERENCES "Seasons_Team_Stats" ("team_id");
-
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_loser_id" FOREIGN KEY("loser_id", "year")
+REFERENCES "Seasons_Team_Stats" ("team_id", "year");
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_home_team_id" FOREIGN KEY("home_team_id", "year")
+REFERENCES "Seasons_Team_Stats" ("team_id", "year");
+ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_away_team_id" FOREIGN KEY("away_team_id", "year")
+REFERENCES "Seasons_Team_Stats" ("team_id", "year");
 ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_stadium_id" FOREIGN KEY("stadium_id")
 REFERENCES "Stadiums" ("stadium_id");
-
 ALTER TABLE "Games" ADD CONSTRAINT "fk_Games_station_id" FOREIGN KEY("station_id")
 REFERENCES "Stations" ("station_id");
-
 ALTER TABLE "Stadiums" ADD CONSTRAINT "fk_Stadiums_team_id" FOREIGN KEY("team_id")
 REFERENCES "Teams" ("team_id");
-
 ALTER TABLE "Stadiums" ADD CONSTRAINT "fk_Stadiums_station_id" FOREIGN KEY("station_id")
 REFERENCES "Stations" ("station_id");
-
 ALTER TABLE "Seasons_Team_Stats" ADD CONSTRAINT "fk_Seasons_Team_Stats_team_id" FOREIGN KEY("team_id")
 REFERENCES "Teams" ("team_id");
 
